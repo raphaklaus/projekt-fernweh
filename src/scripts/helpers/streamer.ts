@@ -6,7 +6,19 @@ import fs from "fs";
 
 const batchSize = 500;
 
-export const stream = (filePath: string, bulkInsert: Function) => {
+export const stream = (filePath: string, fn: Function) => {
+  const pipeline = chain([fs.createReadStream(filePath), parser()]);
+  let count = 0;
+
+  pipeline.on("data", (data: Sentence) => {
+    data.text.split(" ").reduce(prev, (cur) => {
+      prev;
+    });
+  });
+  pipeline.on("end", () => console.log("Count completed"));
+};
+
+export const streamBatch = (filePath: string, fn: Function) => {
   const pipeline = chain([
     fs.createReadStream(filePath),
     parser(),
@@ -15,7 +27,7 @@ export const stream = (filePath: string, bulkInsert: Function) => {
 
   pipeline.on("data", (data: Sentence[]) => {
     console.log(`Importing ${data.length} entities...`);
-    bulkInsert(data);
+    fn(data);
   });
   pipeline.on("end", () => console.log("Import completed"));
 };

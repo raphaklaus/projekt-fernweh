@@ -1,4 +1,4 @@
 import { bulkInsert } from "../repo/firestore/repo";
-import { stream } from "./helpers/streamer";
+import { streamBatch } from "./helpers/streamer";
 
-stream("data/sentences.jsonl", bulkInsert);
+streamBatch("data/sentences.jsonl", bulkInsert);
