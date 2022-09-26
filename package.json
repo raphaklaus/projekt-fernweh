@@ -4,6 +4,7 @@
   "description": "Haben Sie keine Scheu, sondern entdecken und erkunden Sie die Orte, die Ihr Fernweh auslösen!",
   "main": "index.js",
   "scripts": {
+    "start": "tsc --project ./ && node ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/raphaklaus/projekt-fernweh/issues"
   },
-  "homepage": "https://github.com/raphaklaus/projekt-fernweh#readme"
+  "homepage": "https://github.com/raphaklaus/projekt-fernweh#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.8.3"
+  }
 }
