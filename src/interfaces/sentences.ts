@@ -1,6 +1,6 @@
-interface Sentence {
+export interface Sentence {
   text:string
-  category:Category[]
+  categories:Category[]
 }
 
 interface Category {
