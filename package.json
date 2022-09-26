@@ -1,0 +1,19 @@
+{
+  "name": "projekt-fernweh",
+  "version": "1.0.0",
+  "description": "Haben Sie keine Scheu, sondern entdecken und erkunden Sie die Orte, die Ihr Fernweh auslösen!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raphaklaus/projekt-fernweh.git"
+  },
+  "author": "Raphael D. Pinheiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raphaklaus/projekt-fernweh/issues"
+  },
+  "homepage": "https://github.com/raphaklaus/projekt-fernweh#readme"
+}
