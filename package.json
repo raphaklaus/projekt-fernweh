@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc --project ./",
-    "start": "npm run build && node ./dist/index.js",
-    "upload_to_firestore": "npm run build && node ./dist/scripts/send_to_firestore.js",
+    "start": "npm run build && node ./dist/src/server/index.js",
+    "upload_to_firestore": "npm run build && node ./dist/src/scripts/send_to_firestore.js",
+    "count_words": "npm run build && node ./dist/src/scripts/word_counter.js",
     "test": "jest"
   },
   "repository": {
@@ -21,14 +22,19 @@
   "homepage": "https://github.com/raphaklaus/projekt-fernweh#readme",
   "dependencies": {
     "@google-cloud/firestore": "^6.2.0",
+    "express": "^4.18.1",
     "firebase": "^9.10.0",
     "firebase-admin": "^11.0.1",
     "stream-json": "^1.7.4",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "utf8": "^3.0.0",
+    "windows-1252": "^3.0.4"
   },
   "devDependencies": {
+    "@types/express": "^4.17.14",
     "@types/jest": "^29.0.3",
     "@types/stream-json": "^1.7.2",
+    "@types/utf8": "^3.0.1",
     "jest": "^29.0.3",
     "ts-jest": "^29.0.2",
     "typescript": "^4.8.3"
