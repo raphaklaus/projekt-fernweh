@@ -1,20 +1,39 @@
-import { count, limit } from "../src/scripts/counter";
+import { count, rank } from "../src/scripts/helpers/counter";
+import { IMap } from "../src/scripts/helpers/map";
 
-test("given string 'a b c a b b' 'b' should be top 1, 'a' top 2 and 'c' top 3", () => {
-  const input = "a b c a b b".split(" ");
+test("given string inputs it count words accumulating state", () => {
+  const input = "a b c a b b";
+  const first_state = count(input, new Map());
+  expect(first_state).toStrictEqual(
+    new Map([
+      ["b", 3],
+      ["a", 2],
+      ["c", 1],
+    ])
+  );
 
-  expect(count(input)).toStrictEqual({
-    a: 2,
-    b: 3,
-    c: 1,
-  });
+  const second_state = count("a a a", first_state);
+
+  expect(second_state).toStrictEqual(
+    new Map([
+      ["b", 3],
+      ["a", 5],
+      ["c", 1],
+    ])
+  );
 });
 
-test("limit to top 2", () => {
-  const input = "a b c a b b".split(" ");
-  const aggregated = count(input);
-  expect(limit(aggregated, 2)).toStrictEqual([
-    ["b", 3],
+test("given a Map, it should rank by value top N values", () => {
+  const map = new Map<string, number>([
     ["a", 2],
+    ["c", 1],
+    ["b", 3],
   ]);
+
+  expect(rank(map as IMap<string, number>, 2)).toStrictEqual(
+    new Map([
+      ["b", 3],
+      ["a", 2],
+    ])
+  );
 });
